@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
+  body
+    .container(style='margin-top: 24px')
+      h1.title Select a file to load:
+      form
+        each file in files
+          - const checked = file === f;
+          div
+            label
+              input(type='radio' style='margin-right: 16px' name='f' value=file checked=checked)
+              = file
+        else
+          div There is no files in folder
+    script(src='/server.js')
+    if f
+      script(src=f)
